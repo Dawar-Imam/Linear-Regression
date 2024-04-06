@@ -1,10 +1,10 @@
-# Isolation Forest
+# Linear Regression
 
 ## Introduction
 
-Isolation Forest is an anomaly detection algorithm that efficiently isolates outliers by building random binary trees. It identifies anomalies as data points that are easier to separate from the rest of the dataset, making it effective for detecting outliers in high-dimensional datasets without relying on distance measures.
+Linear Regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between the variables, aiming to find the best-fitting straight line that predicts the dependent variable based on the independent variables. Linear Regression is widely used for predictive analysis and understanding the relationship between variables in various fields, including economics, finance, and social sciences.
 
-The following project uses Isolation Forest for detecting anomalies over the transaction_anomalies_dataset. A detailed description about the dataset will be described later.
+The following project uses Linear Regression for predicting amount of tip given by customer at a dining. A detailed description about the dataset will be described later.
 
 ## Requirements
 
@@ -16,49 +16,36 @@ pip install -r requirements.txt
 
 ## Dataset Description
 
-The transaction_anomalies_dataset dataset 12 features, each of whose description is given as follows:
+The dataset contains information about restaurant bills, including the total bill, tip amount, gender of the person giving the tip, smoker status, day of the week, time of day, and size of the dining party. Each feature is described as follows:
+
 ```bash
-Transaction_ID:                 Unique identifier for each transaction.
-Transaction_Amount:             The monetary value of the transaction.
-Transaction_Volume:             The quantity or number of items/actions involved in the transaction.
-Average_Transaction_Amount:     The historical average transaction amount for the account.
-Frequency_of_Transactions:      How often transactions are typically performed by the account.
-Time_Since_Last_Transaction:    Time elapsed since the last transaction.
-Day_of_Week:                    The day of the week when the transaction occurred.
-Time_of_Day:                    The time of day when the transaction occurred.
-Age:                            Age of the account holder.
-Gender:                         Gender of the account holder.
-Income:                         Income of the account holder.
-Account_Type:                   Type of account (e.g., current, savings)
+total_bill:            Total bill of the customers.
+tip:                   Amount of tip given.
+sex:                   Gender of the person giving the tip.
+smoker:                Smoker status (yes/no).
+day:                   Day of the week when the transaction occurred (Thursday to Sunday).
+time:                  Time of day when the transaction occurred (lunch or dinner).
+size:                  Number of people for dining.
 ```
 Statistics of the dataset are also shown during program execution, as well as null values inside the data columns.
 
 ## Training and Testing
 
-Run the isolation_forest.py file after installing the given requirements.
+Run the model.py file after installing the given requirements.
 
-Dataset information composing of feature description, statistics, and null value counts are shown during program execution. The data was first cleaned and unnecessary features were removed before going into training. After cleaning and training, statistical graphs are presented, and its accuracy during training is also shown. Lastly testing phase prompts runs shortly for runtime detection of anomalies. 
+Dataset information composing of null value counts, feature descriptions, and statistics are shown during program execution. The data was first preprocessed, transforming all categorical values into numerical values before going into training. After cleaning and training, statistical graphs are presented, and the loss during training is also shown. Lastly testing phase prompts runs shortly for runtime prediction of amount of tips. 
 
-The model trained over above dataset acheived an average of 78% accuracy. Here's the classification report:
-
-Classification Report:
-```bash
-              precision  recall  f1-score   support
-Anomaly           0.000   0.000  0.000000     0.000
-Normal            1.000   0.804  0.891353  1000.000
-accuracy          0.804   0.804  0.804000     0.804
-macro avg         0.500   0.402  0.445676  1000.000
-weighted avg      1.000   0.804  0.891353  1000.000
-```
-This report is also presented during execution of the program
+The model trained over above dataset acheived an average of 0.69 loss. L2 Loss was used.
 
 ## Graphical Results
 
-![Distribution of Transaction Amount](Graphs/Distribution_of_Transaction_Amount.png)
-![Transaction Amount by Account Type](Graphs/Transaction_Amount_by_Account_Type.png)
-![Average Transaction Amount by Age](Graphs/Average_Transaction_Amount_by_Age.png)
-![Count of Transactions by Day of Week](Graphs/Count_of_Transactions_by_Day_of_Week.png)
-![Correlation Matrix](Graphs/Correlation_Matrix.png)
-![Anomalies in Transaction Amount](Graphs/Anomalies_in_Transaction_Amount.png)
+![Average Tips Given by Smokers and Non-Smokers](Graphs/Average%20Tips%20Given%20by%20Smokers%20and%20Non-Smokers.png)
+![Distribution of Tips by Day of the Week](Graphs/Distribution%20of%20Tips%20by%20Day%20of%20the%20Week.png)
+![Distribution of Tips by Gender of the Person Paying the Bill](Graphs/Distribution%20of%20Tips%20by%20Gender%20of%20the%20Person%20Paying%20the%20Bill.png)
+![Distribution of Tips by Meal Time (Lunch vs. Dinner)](Graphs/Distribution%20of%20Tips%20by%20Meal%20Time%20(Lunch%20vs.%20Dinner).png)
+![Total Bill Paid vs. Tip with Different Colors and Sizes for Gender and Table Size](Graphs/Total%20Bill%20Paid%20vs.%20Tip%20with%20Different%20Colors%20and%20Sizes%20for%20Gender%20and%20Table%20Size.png)
+![Total Bill Paid vs. Tip with Different Colors and Sizes for Meal Time and Table Size](Graphs/Total%20Bill%20Paid%20vs.%20Tip%20with%20Different%20Colors%20and%20Sizes%20for%20Meal%20Time%20and%20Table%20Size.png)
+
+
 
 
