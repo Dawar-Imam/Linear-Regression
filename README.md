@@ -45,6 +45,7 @@ The model trained over above dataset acheived an average of 0.69 loss. L2 Loss w
 ![Distribution of Tips by Meal Time (Lunch vs. Dinner)](Graphs/Distribution%20of%20Tips%20by%20Meal%20Time%20(Lunch%20vs.%20Dinner).png)
 ![Total Bill Paid vs. Tip with Different Colors and Sizes for Gender and Table Size](Graphs/Total%20Bill%20Paid%20vs.%20Tip%20with%20Different%20Colors%20and%20Sizes%20for%20Gender%20and%20Table%20Size.png)
 ![Total Bill Paid vs. Tip with Different Colors and Sizes for Meal Time and Table Size](Graphs/Total%20Bill%20Paid%20vs.%20Tip%20with%20Different%20Colors%20and%20Sizes%20for%20Meal%20Time%20and%20Table%20Size.png)
+![Total Bill Paid vs. Tip with Different Colors and Sizes for Day of Week and Table Size.png](Graphs/Total%20Bill%20Paid%20vs.%20Tip%20with%20Different%20Colors%20and%20Sizes%20for%20Day%20of%20Week%20and%20Table%20Size.png)
 
 
 

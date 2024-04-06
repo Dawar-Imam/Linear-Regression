@@ -49,7 +49,7 @@ def pie(column, title, filename=None):
     plt.show()
 
 df_subset = df[df['day'].isin(['Thur', 'Fri', 'Sat', 'Sun'])]
-scatter_plot(df_subset, 'day', 'Set1', 'Total Bill Paid vs. Tip with Different Colors and Sizes for Gender and Table Size')
+scatter_plot(df_subset, 'day', 'Set1', 'Total Bill Paid vs. Tip with Different Colors and Sizes for Day of Week and Table Size')
 scatter_plot(df, 'sex', 'Set2', 'Total Bill Paid vs. Tip with Different Colors and Sizes for Gender and Table Size')
 scatter_plot(df, 'time', 'Set2', 'Total Bill Paid vs. Tip with Different Colors and Sizes for Meal Time and Table Size')
 pie('day', 'Distribution of Tips by Day of the Week')
