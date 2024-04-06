@@ -1,10 +1,11 @@
+import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 ############################################################## Dataset Description and Stats 
 
@@ -19,21 +20,31 @@ print(df.describe())
 
 ############################################################## Plots 
 
-def scatter_plot(data, color_column, palette, title):
+def scatter_plot(data, color_column, palette, title, filename=None):
+    if filename is None:
+        filename = title + ".png"
     plt.figure(figsize=(10, 6))
     scatter = sns.scatterplot(x='total_bill', y='tip', hue=color_column, size='size', sizes=(20, 200), data=data, palette=palette)
     plt.title(title)
     plt.xlabel('Total Bill Paid')
     plt.ylabel('Tip')
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    if not os.path.exists("Graphs"):
+        os.makedirs("Graphs")
+    plt.savefig(os.path.join("Graphs", filename))
     plt.show()
 
-def pie(column, title):
+def pie(column, title, filename=None):
+    if filename is None:
+        filename = title + ".png"
     tips_by_column_data = df.groupby(column)['tip'].sum()
     plt.figure(figsize=(8, 8))
     plt.pie(tips_by_column_data, labels=tips_by_column_data.index, autopct='%1.1f%%', startangle=90, colors=plt.cm.tab20.colors)
     plt.gca().add_artist(plt.Circle((0, 0), 0.5, color='white'))
     plt.title(title)
+    if not os.path.exists("Graphs"):
+        os.makedirs("Graphs")
+    plt.savefig(os.path.join("Graphs", filename))
     plt.show()
 
 df_subset = df[df['day'].isin(['Thur', 'Fri', 'Sat', 'Sun'])]
